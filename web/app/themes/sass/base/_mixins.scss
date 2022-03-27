@@ -1,0 +1,20 @@
+/** Media Queries **/
+@mixin phone {
+    @media (max-width: #{$phone}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+// GRID
+@mixin grid($columns, $space ) {
+    display: grid;
+    gap: $space;
+    grid-template-columns: repeat($columns, 1fr);
+}
+
+ 

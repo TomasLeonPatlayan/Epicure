@@ -1,0 +1,858 @@
+/*
+Theme Name:Epicure
+Theme URI:
+Author: Tomas Leon Patlayan
+Author URI: https://github.com/yanpatla
+Description:Theme for Restaurants
+Version:1.0
+Licence:GNU General Public Licence v2 or later
+License URI: http://www.gnu.or/licenses/glp-2.0.hmtl
+Tags: Restaurant,mobile first, responsive
+Text Domain: epicture
+ */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+    line-height: 1.15;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */ }
+
+/* Sections
+     ========================================================================== */
+/**
+   * Remove the margin in all browsers.
+   */
+body {
+    margin: 0; }
+
+/**
+   * Render the `main` element consistently in IE.
+   */
+main {
+    display: block; }
+
+/**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0; }
+
+/* Grouping content
+     ========================================================================== */
+/**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+hr {
+    box-sizing: content-box;
+    /* 1 */
+    height: 0;
+    /* 1 */
+    overflow: visible;
+    /* 2 */ }
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+pre {
+    font-family: monospace, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */ }
+
+/* Text-level semantics
+     ========================================================================== */
+/**
+   * Remove the gray background on active links in IE 10.
+   */
+a {
+    background-color: transparent; }
+
+/**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+abbr[title] {
+    border-bottom: none;
+    /* 1 */
+    text-decoration: underline;
+    /* 2 */
+    text-decoration: underline dotted;
+    /* 2 */ }
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+b,
+strong {
+    font-weight: bolder; }
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */ }
+
+/**
+   * Add the correct font size in all browsers.
+   */
+small {
+    font-size: 80%; }
+
+/**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline; }
+
+sub {
+    bottom: -0.25em; }
+
+sup {
+    top: -0.5em; }
+
+/* Embedded content
+     ========================================================================== */
+/**
+   * Remove the border on images inside links in IE 10.
+   */
+img {
+    border-style: none; }
+
+/* Forms
+     ========================================================================== */
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */ }
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+button,
+input {
+    /* 1 */
+    overflow: visible; }
+
+/**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+button,
+select {
+    /* 1 */
+    text-transform: none; }
+
+/**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button; }
+
+/**
+   * Remove the inner border and padding in Firefox.
+   */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0; }
+
+/**
+   * Restore the focus styles unset by the previous rule.
+   */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText; }
+
+/**
+   * Correct the padding in Firefox.
+   */
+fieldset {
+    padding: 0.35em 0.75em 0.625em; }
+
+/**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   */
+legend {
+    box-sizing: border-box;
+    /* 1 */
+    color: inherit;
+    /* 2 */
+    display: table;
+    /* 1 */
+    max-width: 100%;
+    /* 1 */
+    padding: 0;
+    /* 3 */
+    white-space: normal;
+    /* 1 */ }
+
+/**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   */
+progress {
+    vertical-align: baseline; }
+
+/**
+   * Remove the default vertical scrollbar in IE 10+.
+   */
+textarea {
+    overflow: auto; }
+
+/**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   */
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */ }
+
+/**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto; }
+
+/**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   */
+[type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */ }
+
+/**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; }
+
+/**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to `inherit` in Safari.
+   */
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */ }
+
+/* Interactive
+     ========================================================================== */
+/*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+details {
+    display: block; }
+
+/*
+   * Add the correct display in all browsers.
+   */
+summary {
+    display: list-item; }
+
+/* Misc
+     ========================================================================== */
+/**
+   * Add the correct display in IE 10+.
+   */
+template {
+    display: none; }
+
+/**
+   * Add the correct display in IE 10.
+   */
+[hidden] {
+    display: none; }
+
+@font-face {
+    font-family: HelveticaNeue;
+    src: local(HelveticaNeue-Thin), url(/path/to/HelveticaNeue-Thin.woff2) format("woff2"), url(/path/to/HelveticaNeue-Thin.woff) format("woff"), url(/path/to/HelveticaNeue-Thin.ttf) format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal; }
+
+@font-face {
+    font-family: HelveticaNeue;
+    src: local(HelveticaNeue), url(/path/to/HelveticaNeue.woff2) format("woff2"), url(/path/to/HelveticaNeue.woff) format("woff"), url(/path/to/HelveticaNeue.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal; }
+
+/** Media Queries **/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; }
+
+*, *:before, *:after {
+    box-sizing: inherit; }
+
+body {
+    font-size: 1.6rem; }
+
+a {
+    text-decoration: none; }
+
+.container {
+    width: 80%;
+    max-width: 144rem;
+    margin: 0 auto; }
+
+img {
+    max-width: 100%; }
+
+.Text-Style-8 {
+    font-family: HelveticaNeue;
+    font-size: 40px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2.67px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-7 {
+    font-family: HelveticaNeue;
+    font-size: 35px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 1.97px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-9 {
+    font-family: HelveticaNeue;
+    font-size: 30px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: 1.25px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-6 {
+    font-family: HelveticaNeue;
+    font-size: 27px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.35px;
+    color: #000; }
+
+.Text-Style {
+    font-family: HelveticaNeue;
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.67px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-11, h4 {
+    font-family: HelveticaNeue;
+    font-size: 23.8px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.58px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-2, ul .menu-item a {
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.92px;
+    color: #000; }
+
+.Text-Style-3 {
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-4 {
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.93px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-10 {
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.88px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-5 {
+    font-family: HelveticaNeue;
+    font-size: 11.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-12 {
+    font-family: HelveticaNeue;
+    font-size: 38px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2.53px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-13 {
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.13px;
+    color: #000; }
+
+.Text-Style-14 {
+    font-family: HelveticaNeue;
+    font-size: 22.5px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: 1.5px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-15 {
+    font-family: HelveticaNeue;
+    font-size: 19.5px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: 1.3px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-16 {
+    font-family: HelveticaNeue;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-17 {
+    font-family: HelveticaNeue;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.77px;
+    text-align: center;
+    color: var(--black); }
+
+.Text-Style-18 {
+    font-family: HelveticaNeue;
+    font-size: 25px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 1.08px;
+    text-align: justify;
+    color: var(--black); }
+
+.Text-Style-19 {
+    font-family: HelveticaNeue;
+    font-size: 22px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.69px;
+    text-align: justify;
+    color: var(--black); }
+
+.Text-Style-20 {
+    font-family: HelveticaNeue;
+    font-size: 30px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.89px;
+    text-align: center;
+    color: #000; }
+
+.Text-Style-21 {
+    font-family: HelveticaNeue;
+    font-size: 38.4px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: 2.56px;
+    text-align: center;
+    color: #000; }
+
+header {
+    border-bottom: 0.2px solid #979797; }
+
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+.nav_container_pages {
+    display: flex; }
+.nav_container_pages_logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem; }
+.nav_container_pages_logo a {
+    display: block; }
+.nav_container_pages_menu ul {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    list-style: none; }
+.nav_container_pages_menu ul .current_page_item a {
+    border-bottom: solid 1.8px #EFCE8C; }
+.nav_container_pages_menu ul a {
+    color: #000; }
+.nav_container_information {
+    display: flex;
+    align-items: center;
+    gap: 3rem; }
+.nav_container_information_search {
+    width: 400px;
+    height: 34px; }
+.nav_container_information_search input {
+    border-radius: 4px;
+    border: solid 0.5px #979797;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: url("../img/search-icon.svg") right no-repeat;
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+    outline: none; }
+
+.restaurant {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem; }
+.restaurant_content {
+    background-color: #F9F4EA;
+    justify-self: center; }
+.restaurant_content_title h2 {
+    margin-bottom: .5rem; }
+.restaurant_content_subtitle {
+    padding-bottom: 2rem; }
+.restaurant_content_subtitle h4, .restaurant_content_subtitle p {
+    margin: 0px; }
+.restaurant a {
+    grid-column: 3/4;
+    text-align: end; }
+
+footer {
+    padding: 3.7rem 0;
+    box-shadow: 0 -1px 1px -1px rgba(0, 0, 0, 0.15); }
+
+.footer_content {
+    display: flex;
+    justify-content: center;
+    gap: 3rem; }
+
+.hero {
+    text-align: center;
+    border: none; }
+.hero img {
+    width: 100%; }
+
+.plates {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 5rem;
+    justify-items: center;
+    margin-top: 2rem; }
+.plates_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 236px;
+    width: 100%; }
+.plates_content_image img {
+    height: 100%; }
+.plates_content_info {
+    background-color: rgba(232, 196, 122, 0.2); }
+.plates_content_info_ingredients {
+    padding: 0 2rem; }
+.plates_content_info_price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 3rem 0;
+    gap: 1.5rem; }
+.plates_content_info_price span {
+    font-family: HelveticaNeue;
+    font-size: 21px; }
+.plates_content_info_price_line {
+    width: 5rem;
+    border: 0.3px solid #979797; }
+
+.title {
+    padding: 7rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4.5rem; }
+.title h2 {
+    text-transform: uppercase; }
+.title_line {
+    border: solid 0.5px #979797;
+    width: 100%; }
+
+.hero-front {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 75vh;
+    position: relative; }
+.hero-front_search-container {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 781px;
+    height: 222px;
+    background-color: rgba(255, 255, 255, 0.88); }
+.hero-front_search-container_content {
+    margin: auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+.hero-front_search-container_content_search {
+    width: 511px;
+    height: 48px; }
+.hero-front_search-container_content_search input {
+    border-radius: 4px;
+    border: solid 0.5px #979797;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: url("../img/search-icon.svg") right no-repeat;
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+    outline: none;
+    text-align: center; }
+
+.signature-dish {
+    display: flex; }
+.signature-dish_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1; }
+.signature-dish_content_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #FAF4EA;
+    margin-top: auto;
+    height: 100%;
+    max-width: 360px; }
+.signature-dish_content_container_ingredients {
+    width: 80%; }
+.signature-dish_content_container_price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 3rem 0;
+    gap: 1.5rem; }
+.signature-dish_content_container_price span {
+    font-family: HelveticaNeue;
+    font-size: 24.9px;
+    font-weight: 100;
+    letter-spacing: 1.66px;
+    color: #000; }
+.signature-dish_content_container_price_line {
+    width: 5rem;
+    border: 0.3px solid #979797; }
+.signature-dish_content_container_image {
+    width: 360px; }
+.signature-dish_content_container_image img {
+    width: 100%; }
+
+.meaning {
+    background-color: #fafafa;
+    padding: 3rem 0;
+    margin-top: 4rem; }
+.meaning_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem; }
+.meaning_container_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem; }
+
+.chef_profile_content {
+    display: grid;
+    gap: 0rem;
+    grid-template-columns: repeat(2, 1fr); }
+.chef_profile_content_image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+.about-us {
+    background-color: #fafafa;
+    padding: 3rem 0; }
+.about-us_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; }
+.about-us_container_description-container {
+    flex: 0 0 auto;
+    width: 50%; }
+.about-us_container_description-container h2 {
+    text-align: left; }
+.about-us_container_description-container_download {
+    display: flex;
+    align-items: center;
+    gap: 2rem; }
+.about-us_container_description-container_download_apple {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: .8rem 1.17rem .7rem 1.5rem;
+    border: solid 0.6px #000;
+    border-radius: 9.6px; }
+.about-us_container_description-container_download_apple_span {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+.about-us_container_description-container_download_apple_span span {
+    font-family: HelveticaNeue;
+    font-size: 13.2px;
+    letter-spacing: 1.29px;
+    text-align: center;
+    color: #000; }
+.about-us_container_description-container_download_apple_span span:last-child {
+    font-size: 16.8px; }
+.about-us_container_description-container_download_playstore {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: .8rem 1.17rem .7rem 1.5rem;
+    border: solid 0.6px #000;
+    border-radius: 9.6px; }
+.about-us_container_description-container_download_playstore_span {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+.about-us_container_description-container_download_playstore_span span {
+    font-family: HelveticaNeue;
+    font-size: 13.2px;
+    letter-spacing: 1.29px;
+    text-align: center;
+    color: #000; }
+.about-us_container_description-container_download_playstore_span span:last-child {
+    font-size: 16.8px; }
+.about-us_container_logo {
+    flex: .5; }

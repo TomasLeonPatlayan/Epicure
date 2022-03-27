@@ -1,0 +1,103 @@
+
+
+.restaurant{
+   @include grid(3,0);
+       gap: 2rem;
+       margin-bottom:3rem;
+       @include phone {
+        @include grid(2,1);
+
+       }
+   &_content {
+       background-color:$cream;
+       justify-self: center;
+
+        &_title {
+        h2{
+        margin-bottom:.5rem;
+        @include phone {
+          font-size: 17.2px;
+
+        }
+        }
+        }
+       &_subtitle{
+       padding-bottom: 2rem;
+            h4,p {
+            margin:0px;
+            @include phone {
+             font-size: 13.3px;
+            }
+
+            }
+
+
+       }
+   }
+
+   a{
+ grid-column:3/4;
+ text-align:end;
+
+   }
+
+}
+
+.filters{
+h1{
+display:none;
+}
+
+@include phone {
+    h1{
+    font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 1.54px;
+      text-align: center;
+      color: var(--black);
+    }
+}
+
+    ul{
+    display:flex;
+    justify-content:center;
+    gap:4rem;
+    list-style:none;
+    padding:3rem 0;
+    @include phone {
+    padding:1rem 0 ;
+    gap:1rem;
+        li{
+         font-size: 16px;
+                font-weight: 100;
+        }
+    }
+        li{
+            cursor:pointer;
+        }
+        .active{
+        font-weight:normal;
+        }
+    }
+}
+
+// .grid-item{
+//    background-color:$cream;
+//  margin:1rem;
+//
+//
+// }
+.hero{
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 450px;
+
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+
+}

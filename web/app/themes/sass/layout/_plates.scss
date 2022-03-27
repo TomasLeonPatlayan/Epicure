@@ -1,0 +1,224 @@
+
+.hero {
+    text-align:center;
+    border: none;
+    h2{
+    margin-bottom:0;
+    }
+
+    img{
+    width:100%;
+    }
+
+}
+.rest {
+margin-bottom:1rem;
+h4{
+margin:0;
+}
+
+&_time{
+display:flex;
+align-items:center;
+span{
+font-family: HelveticaNeue;
+  font-size: 12px;
+  font-weight: 100;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: 0.8px;
+  text-align: center;
+  margin:1rem;
+}
+}
+
+
+}
+.rest-dish{
+
+ @include grid(4,0);
+grid-row-gap: 2rem;
+
+@include phone {
+ @include grid(2,1);
+}
+
+    &_content{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    flex:1;
+    @include phone {
+    width:100%;
+     max-width: 157px;
+    }
+    &_container {
+    display: flex;
+      align-items: center;
+      flex-direction: column;
+      background: #FAF4EA;
+      margin-top:auto;
+      height:100%;
+      max-width: 235.5px;
+//       @include phone {
+//        max-width:157px;
+//       }
+      &_title{
+        @include phone{
+        h3{
+           font-size: 15px;
+        }
+        }
+      }
+        &_ingredients{
+          width:80%;
+          @include phone {
+          p{
+           font-size: 13px;
+          }
+          }
+          }
+        &_price{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-top: auto;
+        padding:3rem 0;
+        gap:1.5rem;
+
+        span{
+        font-family: HelveticaNeue;
+        font-size: 24.9px;
+        font-weight: 100;
+        letter-spacing: 1.66px;
+        color:$black;
+         @include phone {
+          font-size: 14px;
+
+
+
+                }
+            }
+             &_line{
+             width:5rem;
+             border:.3px solid  $grey;
+             @include phone {
+               width: 34px;
+             }
+                    }
+        }
+          &_image{
+          width:235.5px;
+          @include phone {
+            max-width: 157px;
+          }
+          img{
+          width:100%;
+          }
+          }
+    }
+
+    }
+}
+.title{
+padding:7rem 0 1rem 0 ;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:4.5rem;
+h2{
+text-transform:uppercase;
+}
+&_line{
+border: solid 0.5px $grey;
+  width:100%;
+}
+
+}
+.modal{
+padding:0!important;
+}
+.dish-modal{
+ height:70vh;
+    &_container{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+        &_image{
+        background-repeat:no-repeat;
+            background-size: cover;
+        background-position: center center;
+ width: 608px;
+  height: 292px;
+   display: table;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+      position: relative;
+//            img{
+//            width:100%;
+//
+//            }
+           }
+        &_title{
+        h3{
+        margin: 0 27.2px 14px 17px;
+          font-family: HelveticaNeue;
+          font-size: 35px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: 2.33px;
+          text-align: center;
+          }
+
+        }
+        &_content{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        width:50%;
+         &_reset{
+                p{
+                margin: 14px 0 30px 17px;
+                  font-family: HelveticaNeue;
+                  font-size: 14px;
+                  font-weight: 100;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: normal;
+                  letter-spacing: 0.93px;
+                  text-align: center;
+                  }
+                }
+        }
+   &_price{
+         display:flex;
+              align-items:center;
+      justify-content:center;
+              margin-top: auto;
+                padding:3rem 0;
+                gap:1.5rem;
+        span{
+        font-family: HelveticaNeue;
+          font-size: 24.9px;
+          font-weight: 100;
+         letter-spacing: 1.66px;
+          color:$black;
+            }
+             &_line{
+                     width:5rem;
+                    border:.3px solid  $grey;
+                    }
+        }
+//         &_radio{
+//         display:block;
+//         }
+
+
+    }
+}
+

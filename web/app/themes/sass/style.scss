@@ -1,0 +1,24 @@
+/*
+Theme Name:Epicure
+Theme URI:
+Author: Tomas Leon Patlayan
+Author URI: https://github.com/yanpatla
+Description:Theme for Restaurants
+Version:1.0
+Licence:GNU General Public Licence v2 or later
+License URI: http://www.gnu.or/licenses/glp-2.0.hmtl
+Tags: Restaurant,mobile first, responsive
+Text Domain: epicture
+ */
+@import './base/normalize';
+@import './base/variables';
+@import './base/mixins';
+@import './base/globals';
+
+
+//* Layout
+@import './layout/header';
+@import './layout/restaurant';
+@import './layout/footer';
+@import './layout/plates';
+@import './layout/front';

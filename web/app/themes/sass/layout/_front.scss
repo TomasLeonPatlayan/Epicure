@@ -1,0 +1,479 @@
+.hero-front{
+background-repeat:no-repeat;
+background-size: cover;
+background-position: center center;
+height: 696px;;
+position:relative;
+@include phone {
+ height: 269px;
+
+
+}
+@include phone {
+main{
+
+    h2{
+    font-size: 14px;
+      font-weight: 100;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.57;
+    }
+  }
+}
+    &_search-container{
+
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        width: 781px;
+        height: 222px;
+         background-color: rgba(255, 255, 255, 0.88);
+         @include phone {
+          width: 335px;
+           height: 125px;
+
+         }
+
+         &_content{
+             margin: auto;
+             width: 60%;
+             display:flex;
+             flex-direction:column;
+             align-items:center;
+             @include phone{
+                 &_title{
+                    h1{
+                      font-family: HelveticaNeue;
+                      font-size: 16px;
+                      font-weight: 100;
+                    }
+                 }
+             }
+              &_search {
+
+                     form{
+                       width: 30vw;
+                         height: 48px;
+
+                           display: flex;
+                           padding: 2px;
+                            border: solid .5px $grey;
+                           border-radius: 5px;
+                             border-radius:4px;
+                             @include phone {
+                             width: 269px;
+                             height: 33px;
+                             margin: 13px 0 0;
+                             padding: 8px 19px 8px 9px;
+                             border-radius: 4px;
+                             border: solid 0.2px $black;
+                                               }
+
+                     input{
+                     width:100%;
+                     height:100%;
+                     box-sizing:border-box;
+                     outline:none;
+                     padding: 9px 73px 8px 20px;
+                     background:transparent;
+                     border:none;
+                     &::placeholder{
+                                                         opacity: 0.8;
+                                                           font-family: HelveticaNeue;
+                                                           font-size: 18px;
+                                                           font-weight: 100;
+                                                           letter-spacing: 1.29px;
+                                                           @include phone {
+                                                           font-size: 13px;
+                                                             letter-spacing: 0.93px;
+
+                                                           }
+                                                        }
+                        }
+                        button{
+                         overflow: hidden;
+                          padding: 0;
+                          margin: 0;
+                          border: transparent;
+                          border-radius: inherit;
+                          cursor: pointer;
+                          opacity: 0.7;
+                          background:transparent;
+                           margin: 0 8px 0 0;
+                            padding: 3px 11px 18px 10px;
+                        img{
+
+                      width: 31px;
+                        height: 31px;
+@include phone{
+ width: 16px;
+  height: 16px;
+}
+
+                        }
+                        }
+                     }
+
+
+
+              }
+         }
+
+
+    }
+}
+//
+//  border-radius: 4px;
+//                         border:  solid 0.5px $grey;
+//                         width: 100%;
+//                         height: 100%;
+//                          box-sizing: border-box;
+//                          background: url("../img/search-icon.svg") left no-repeat;
+//                         background-position: 5% 50%;
+//                          background-repeat: no-repeat;
+//                          background-size: 31px 31px;
+//                           outline: none;
+//                            text-align:right;
+
+.signature-dish{
+display:flex;
+@include phone {
+flex-direction:column;
+}
+    &_content{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    flex:0 0 calc(33% - 1rem);
+    &_container {
+    display: flex;
+      align-items: center;
+      flex-direction: column;
+      background: #FAF4EA;
+      margin-top:auto;
+      height:100%;
+      max-width: 360px;
+      @include phone {
+      background:#f7e0b2;
+      }
+
+        &_ingredients{
+          width:80%;
+          }
+        &_price{
+         display:flex;
+              align-items:center;
+      justify-content:center;
+              margin-top: auto;
+                padding:3rem 0;
+                gap:1.5rem;
+        span{
+        font-family: HelveticaNeue;
+          font-size: 24.9px;
+          font-weight: 100;
+         letter-spacing: 1.66px;
+          color:$black;
+            }
+             &_line{
+                     width:5rem;
+                    border:.3px solid  $grey;
+                    }
+        }
+          &_image{
+          width: 360px;
+          img{
+          width:100%;
+          }
+          }
+    }
+
+    }
+}
+
+.meaning{
+background-color:   #fafafa;
+padding:3rem 0;
+margin-top:4rem;
+&_container{
+display:flex;
+align-items:center;
+justify-content:center;
+@include phone {
+gap:4rem;
+}
+
+gap:8rem;
+&_content{
+display:flex ;
+flex-direction:column;
+align-items:center;
+gap:3rem;
+}
+}
+}
+
+.chef{
+&_profile{
+&_content{
+@include grid(2,0rem);
+
+@include phone {
+grid-template-columns:none;
+grid-template-rows: calc(2, 1fr);
+justify-content:center;
+}
+    &_image{
+         width: 433px;
+        height: 338px;
+        @include phone {
+        width: 334px;
+        }
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-position: center center;
+        position:relative;
+            span{
+            width:100%;
+            padding:2rem 0;
+             font-size: 40px;
+              letter-spacing: 1.43px;
+              text-align: center;
+                color:$black;
+                position:absolute;
+                left: 50%;
+                    top: 90%;
+                    transform: translate(-50%, -50%);
+                    background-color: rgba(255, 255, 255, 0.88);
+            }
+    }
+    &_description{
+    p{
+    font-size: 13.5px;
+    text-align:center;
+    }
+    }
+&_chef-restaurants{
+    margin:3rem 0;
+        &_restaurants{
+        display:flex;
+        gap:2rem;
+
+
+        &_entry{
+            max-width:231px;
+            flex:1;
+            background:$cream;
+            h3{
+            @include phone {
+                 font-size: 20px;
+                              font-weight: normal;
+                              font-stretch: normal;
+                              font-style: normal;
+                              line-height: normal;
+                              letter-spacing: 1.33px;
+                              text-align: center;
+            }
+
+            }
+
+        }
+    }
+}
+}
+
+}
+}
+
+
+.about-us{
+background-color:#fafafa;
+    padding:3rem 0;
+    &_container{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items:center;
+        @include phone {
+         h2{
+           font-size: 14px;
+            letter-spacing: 0.88px;
+            text-align:center!important;
+          }
+          p{
+         font-size: 14px;
+         letter-spacing: 1.08px;
+         text-align: center;
+          }
+        }
+
+        @include phone {
+        justify-content:center;
+        flex-direction:column;
+        gap:2rem;
+        }
+
+           &_description-container{
+           flex:0 0 auto;
+            width:50%;
+            @include phone {
+            flex:1;
+            width:100%;
+            }
+            h2{
+            text-align:left;
+            }
+                &_download{
+                display:flex;
+                align-items:center;
+                gap:2rem;
+                margin-top:2rem;
+                &_apple{
+                display:flex;
+                align-items:center;
+                gap:2rem;
+               padding: .8rem 1.17rem .7rem 1.5rem;
+               border: solid 0.6px $black;
+               border-radius: 9.6px;
+                    &_span{
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    @include phone {
+
+                    }
+                      span{
+                                           font-family: HelveticaNeue;
+                                           font-size: 13.2px;
+                                           letter-spacing: 1.29px;
+                                          text-align: center;
+                                           color:$black;
+                                            @include phone {
+                                                                  font-size: 9.2px;
+                                                                  }
+                                           }
+                                            span:last-child{
+                                               font-size: 16.8px;
+                                                @include phone {
+                                                                      font-size: 9.2px;
+                                                                      }
+                                               }
+                    }
+                }
+
+                &_playstore{
+                 display:flex;
+                 align-items:center;
+                 gap:2rem;
+                 padding: .8rem 1.17rem .7rem 1.5rem;
+                  border: solid 0.6px $black;
+                  border-radius: 9.6px;
+                    &_span{
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    span{
+                     font-family: HelveticaNeue;
+                      font-size: 13.2px;
+                       letter-spacing: 1.29px;
+                       text-align: center;
+                       color:$black;
+                       @include phone {
+                       font-size: 9.2px;
+                       }
+                    }
+                    span:last-child{
+                        font-size: 16.8px;
+                         @include phone {
+                                               font-size: 9.2px;
+                                               }
+                    }
+                   }
+                }
+              }
+           }
+           &_logo{
+           flex:.5;
+               img{
+               max-width:178px;
+               }
+
+           }
+    }
+}
+.menu-mobile{
+    .nav_container_pages_menu{
+    display:none;
+    }
+}
+@include phone {
+.menu-mobile{
+background:$light-white;
+padding:5rem 0;
+    &_container{
+
+    .nav_container_pages_menu{
+   align-items:center;
+        display:block;
+            ul{
+            justify-content:center;
+            margin:0;
+            padding:0;
+                li{
+                background-color:$sand-80;
+                 padding: 15px 14px 13px;
+                    a{
+                     font-family: HelveticaNeue;
+                     font-size: 13px;
+                     font-weight: normal;
+                     font-stretch: normal;
+                     font-style: normal;
+                     line-height: normal;
+                     letter-spacing: 0.93px;
+                     color:$black;
+                     text-transform:uppercase;
+                    }
+
+                }
+            }
+        }
+    }
+
+}
+}
+.restaurants-link{
+    @include phone {
+    display:none;
+    }
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top:1rem
+}
+.restaurant-front{
+display:flex;
+gap:2rem;
+@include phone {
+flex-direction:column;
+}
+
+    &_content{
+    flex: 0 0 calc(33.3% - 1rem);
+    background:$cream;
+    @include phone {
+  background:#f7e0b2;
+    }
+
+    a{
+        .restaurant-front_content_image {
+        img{
+        width:100%
+        };
+        }
+
+    }
+
+    }
+}
