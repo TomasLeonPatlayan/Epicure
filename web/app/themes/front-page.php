@@ -16,11 +16,11 @@ get_header(); ?>
                 <h1 class="Text-Style-7"><?php echo esc_html(get_option('blogdescription'));?></h1>
             </div>
            <div class="hero-front_search-container_content_search">
-               <form action="<?php echo esc_url(home_url()) ?>" method="get">
+               <form action="<?php echo esc_url(home_url()) ?>" method="get" class="search-form">
                    <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
-                   <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s">
+                   <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s"  class="search-field">
                </form>
-
+               <div id=”load-form”></div>
            </div>
        </div>
     </div>

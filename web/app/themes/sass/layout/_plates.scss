@@ -180,10 +180,20 @@ padding:0!important;
         display:flex;
         flex-direction:column;
         width:50%;
-        h4{
-        display:block;
-            border-bottom: solid 2px #F0CE8C;
-        }
+           &_button{
+           text-align:center;
+           margin-top:2rem;
+           button {
+border-radius:2.1px ;
+padding:1rem 3rem;
+background:$black;
+color:$white;
+font-family: HelveticaNeue;
+  font-size: 18.9px;
+  letter-spacing: 1.08px;
+           }
+           }
+
          &_reset{
                 p{
 //                 margin: 14px 0 30px 17px;
@@ -197,6 +207,34 @@ padding:0!important;
                   text-align: center;
                   }
                 }
+                 &_subtitle{
+                                text-align: center;
+                                 h4{
+                        display:inline-block;
+                                            border-bottom: solid 2px #F0CE8C;
+                                 }
+                                }
+
+            &_radio{
+                &_entry{
+                    label {
+
+                    font-family:'Roboto, Helvetica, sans-serif';
+                    font-size:16px;
+                    margin-left:2.6rem;
+                    }
+                }
+            }
+              &_checkbox{
+                            &_entry{
+                                label {
+
+                                font-family:'Roboto, Helvetica, sans-serif';
+                                font-size:16px;
+                                margin-left:2.6rem;
+                                }
+                            }
+                        }
         }
    &_price{
          display:flex;
@@ -217,6 +255,7 @@ padding:0!important;
                     border:.3px solid  $grey;
                     }
         }
+
 //         &_radio{
 //         display:block;
 //         }

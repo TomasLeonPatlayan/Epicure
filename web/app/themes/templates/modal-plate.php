@@ -24,30 +24,38 @@ foreach ($plates as $plate) : ?>
                 <div class="dish-modal_container_content_reset">
                    <?php echo $plate->post_content; ?>
                 </div>
-                <h4>Choose a Side</h4>
+                <div class="dish-modal_container_content_subtitle">
+                    <h4>Choose a Side</h4>
+                </div>
+
                 <div class="dish-modal_container_content_radio">
 
                     <?php foreach ($radio_button as $radio) : ?>
                         <div class="dish-modal_container_content_radio_entry">
-                            <label for=""><?php echo $radio ?></label>
                             <input type="radio">
+                            <label for=""><?php echo $radio ?></label>
                         </div>
 
                     <?php endforeach; ?>
                 </div>
-                <h4>Changes</h4>
+                <div class="dish-modal_container_content_subtitle">
+                    <h4>Changes</h4>
+                </div>
                 <div class="dish-modal_container_content_checkbox">
 
                     <?php foreach ($checkboxs as $checkbox) : ?>
                     <div class="dish-modal_container_content_checkbox_entry">
-                        <label for=""><?php echo $checkbox ?></label>
                         <input type="checkbox">
+                        <label for=""><?php echo $checkbox ?></label>
+
                     </div>
 
                     <?php endforeach; ?>
                 </div>
+                <div class="dish-modal_container_content_button">
+                    <button>ADD TO BAG</button>
+                </div>
 
-                <button>ADD TO BAG</button>
             </div>
     </div>
 </div>

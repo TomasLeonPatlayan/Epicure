@@ -894,9 +894,17 @@ footer {
     display: flex;
     flex-direction: column;
     width: 50%; }
-    .dish-modal_container_content h4 {
-      display: block;
-      border-bottom: solid 2px #F0CE8C; }
+    .dish-modal_container_content_button {
+      text-align: center;
+      margin-top: 2rem; }
+      .dish-modal_container_content_button button {
+        border-radius: 2.1px;
+        padding: 1rem 3rem;
+        background: #000;
+        color: #fff;
+        font-family: HelveticaNeue;
+        font-size: 18.9px;
+        letter-spacing: 1.08px; }
     .dish-modal_container_content_reset p {
       font-family: HelveticaNeue;
       font-size: 14px;
@@ -906,6 +914,19 @@ footer {
       line-height: normal;
       letter-spacing: 0.93px;
       text-align: center; }
+    .dish-modal_container_content_subtitle {
+      text-align: center; }
+      .dish-modal_container_content_subtitle h4 {
+        display: inline-block;
+        border-bottom: solid 2px #F0CE8C; }
+    .dish-modal_container_content_radio_entry label {
+      font-family: 'Roboto, Helvetica, sans-serif';
+      font-size: 16px;
+      margin-left: 2.6rem; }
+    .dish-modal_container_content_checkbox_entry label {
+      font-family: 'Roboto, Helvetica, sans-serif';
+      font-size: 16px;
+      margin-left: 2.6rem; }
   .dish-modal_container_price {
     display: flex;
     align-items: center;

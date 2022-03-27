@@ -35,9 +35,8 @@
 
             <div class="nav_container_information">
                 <div class="nav_container_information_search">
-                    <form action="<?php echo esc_url(home_url()) ?>" method="get">
-                        <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s">
-                        <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
+                    <form action="<?php echo esc_url(home_url()) ?>" method="get" class="search-form">
+                        <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s"  class="search-field">                        <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
                     </form>
                 </div>
                 <div class="nav_container_information_icon">
