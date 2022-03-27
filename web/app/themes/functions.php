@@ -275,3 +275,36 @@ function awp_autocomplete_search()
     echo json_encode($suggestions);
     die();
 }
+
+//function filter_projects()
+//{
+//
+////
+////    $projects = new WP_Query([
+////        'post_type' => 'restaurants',
+////        'posts_per_page' => -1,
+////        'tax_query' => [
+////            [
+////                'taxonomy' => 'restaurant_category',
+////                'field'    => 'term_id',
+////                'terms'    => 'restaurant_category', // example of $termIds = [4,5]
+////                'operator' => 'IN'
+////            ],
+////        ]
+////    ]);
+////    $response = '';
+////
+////    if ($projects->have_posts()) {
+////        while ($projects->have_posts()) :
+////	        $projects->the_post();
+////            $response .=get_template_part('templates/restaurants', 'template');;
+////        endwhile;
+////    } else {
+////        $response = 'empty';
+////    }
+////
+////    echo $response;
+////    exit;
+////}
+//add_action('wp_ajax_filter_projects', 'filter_projects');
+//add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');

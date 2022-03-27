@@ -1,8 +1,4 @@
 <?php
-$poular_restaurant = get_field('popular_res');
-$signature_dish = get_field('signature_dish');
-
-
 get_header(); ?>
 
 <?php while (have_posts()) :
@@ -41,68 +37,20 @@ get_header(); ?>
 <main class="container">
 
     <h2 class="Text-Style-9 mobile-title"><?php echo the_field("popular_res_title"); ?></h2>
-            <div class="restaurant-front">
-    <?php foreach ($poular_restaurant as $post) :   ?>
-        <?php setup_postdata($post) ?>
-        <div class="restaurant-front_content">
-            <a href="<?php the_permalink();?>">
-                <div class="restaurant-front_content_image">
-                    <?php echo  the_post_thumbnail(); ?>
-                </div>
-                <div class="restaurant-front_content_title">
-                    <h2 class="Text-Style-12"> <?php the_title(); ?></h2>
-                </div>
-                <div class="restaurant-front_content_subtitle">
-                    <?php the_content(); ?>
-                </div>
-            </a>
-        </div>
-
-        <?php wp_reset_postdata();
-    endforeach; ?>
-
-        </div>
+    <div class="restaurant-front">
+                <?php  get_template_part('templates/popular', 'restaurants');?>
+    </div>
     <?php $url = get_page_by_title('Restaurants');?>
     <a class="Text-Style-16 restaurants-link" href="<?php echo get_permalink($url->ID);?>">All Restaurants &gt;&gt;</a>
 
 
-<!--    --><?php //get_template_part('templates/popular', 'restaurants');  ?>
+
 </main>
 
 <section class="container">
     <h2 class="Text-Style-9 mobile-title"><?php echo the_field("signature_dishes"); ?></h2>
     <div class="signature-dish">
-    <?php foreach ($signature_dish as $post) :   ?>
-        <?php setup_postdata($post) ?>
-        <?php $restaurant = get_field("restaurant_relationed");?>
-        <?php foreach ($restaurant as $rest) :?>
-        <div class="signature-dish_content">
-            <h2 class="Text-Style-17"> <?php echo $rest->post_title  ?></h2>
-            <div class="signature-dish_content_container">
-                <div class="signature-dish_content_container_image">
-                    <img src="  <?php echo the_field("image_1") ?>" alt="">
-                </div>
-                <div class="signature-dish_content_container_title">
-                    <h3 class="Text-Style-21"> <?php the_title() ?></h3>
-                </div>
-                <div class="signature-dish_content_container_ingredients">
-                   <?php the_content(); ?>
-                </div>
-                <div class="signature-dish_content_container_price">
-                    <div class="signature-dish_content_container_price_line"></div>
-                    <span>
-                    ₪ <?php the_field('price_1_'); ?>
-
-                </span>
-                    <div class="signature-dish_content_container_price_line"></div>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-        <?php wp_reset_postdata();
-    endforeach;?>
-
-    <?php ////get_template_part('templates/signature', 'dish');?>
+    <?php  get_template_part('templates/signature', 'dish');?>
    </div>
 </section>
 

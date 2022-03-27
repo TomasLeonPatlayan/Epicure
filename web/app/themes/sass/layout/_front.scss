@@ -251,10 +251,13 @@ justify-content:center;
             }
     }
     &_description{
-    p{
-    font-size: 13.5px;
-    text-align:center;
+    @include phone {
+     p{
+        font-size: 13.5px;
+        text-align:center;
+        }
     }
+
     }
 &_chef-restaurants{
     margin:3rem 0;
@@ -329,6 +332,7 @@ background-color:#fafafa;
                 &_download{
                 display:flex;
                 align-items:center;
+                justify-content:center;
                 gap:2rem;
                 margin-top:2rem;
                 &_apple{

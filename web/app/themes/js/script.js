@@ -32,49 +32,6 @@ $(document).ready(function () {
     });
 });
 
-const slider = document.querySelector('.restaurant-front'),
-        slides = Array.from(document.querySelectorAll('.restaurant-front_content'));
-
-let isDragging= false,
-    startPos = 0,
-    currentTranslate=0,
-    prevTranslate = 0,
-    animationID = 0,
-    currentIndex =0
-
-slides.forEach((slide,index)=> {
-    const slideImage = slide.querySelector('img');
-    slideImage.addEventListener('dragstart',(e)=> e.preventDefault())
-
-    slide.addEventListener('touchstart', touchStart(index))
-    slide.addEventListener('touchend', touchEnd)
-    slide.addEventListener('touchmove', touchMove)
-
-})
-
-
-function touchStart(index)
-{
-    return function (event) {
-        isDragging= true
-    }
-}
-function touchMove(event)
-{
-    isDragging= false
-}
-
-function touchEnd()
-{
-    if (isDragging) {
-        console.log('pep')
-    }
-}
-
-
-
-
-    // titleDishes = document.querySelector('.title-dishes');
 
 
 

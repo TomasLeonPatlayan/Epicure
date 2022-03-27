@@ -16,6 +16,12 @@ get_header();?>
 
     </div>
 
+    <div class="rest_date-food">
+        <span>Breakfast</span>
+        <span>Lunch</span>
+        <span>Dinner</span>
+    </div>
+
 
 </div>
 

@@ -5,15 +5,33 @@ border-bottom:0.2px solid $grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &_hamburguer-menu{
+    display:none;
+    @include phone{
+    display:block;
+      flex: 0 0 calc(33.3% - 1rem);
+      &_menus{
+
+              display:none;
+
+              }
+    }
+
+    }
     &_pages{
         display: flex;
-
+ @include phone{
+      flex: 0 0 calc(33.3% - 1rem);
+    }
         &_logo {
            display: flex;
            align-items: center;
            gap: 1rem;
             a{
                 display: block;
+                @include phone {
+                display:none;
+                }
             }
         }
         &_menu{
@@ -43,12 +61,34 @@ border-bottom:0.2px solid $grey;
         display: flex;
         align-items: center;
         gap: 3rem;
+     @include phone{
+          flex: 0 0 calc(33.3% - 1rem);
+        }
 
         &_search {
-        @include phone {
-              display:none;
+        button {
+        display:none
         }
+        @include phone {
+        button {
+        display:block;
+        overflow: hidden;
+                                              padding: 0;
+                                              margin: 0;
+                                              border: transparent;
+                                              border-radius: inherit;
+                                              cursor: pointer;
+                                              opacity: 0.7;
+                                              background:transparent;
+
+        }
+        }
+
+
             form{
+            @include phone {
+            display:none;
+            }
                                    width: 415px;
                                      height: 34px;
 
