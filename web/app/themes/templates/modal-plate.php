@@ -22,10 +22,11 @@ foreach ($plates as $plate) : ?>
             </div>
             <div class="dish-modal_container_content">
                 <div class="dish-modal_container_content_reset">
-                    <p><?php echo $plate->post_content; ?></p>
+                   <?php echo $plate->post_content; ?>
                 </div>
-
+                <h4>Choose a Side</h4>
                 <div class="dish-modal_container_content_radio">
+
                     <?php foreach ($radio_button as $radio) : ?>
                         <div class="dish-modal_container_content_radio_entry">
                             <label for=""><?php echo $radio ?></label>
@@ -34,8 +35,9 @@ foreach ($plates as $plate) : ?>
 
                     <?php endforeach; ?>
                 </div>
-
+                <h4>Changes</h4>
                 <div class="dish-modal_container_content_checkbox">
+
                     <?php foreach ($checkboxs as $checkbox) : ?>
                     <div class="dish-modal_container_content_checkbox_entry">
                         <label for=""><?php echo $checkbox ?></label>

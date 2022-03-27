@@ -864,65 +864,63 @@ footer {
 .modal {
   padding: 0 !important; }
 
-.dish-modal {
-  height: 70vh; }
-  .dish-modal_container {
+.dish-modal_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+  .dish-modal_container_image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 608px;
+    height: 292px;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    position: relative; }
+  .dish-modal_container_title h3 {
+    margin: 0 27.2px 14px 17px;
+    font-family: HelveticaNeue;
+    font-size: 35px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2.33px;
+    text-align: center; }
+  .dish-modal_container_content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%; }
-    .dish-modal_container_image {
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      width: 608px;
-      height: 292px;
-      display: table;
-      margin: 0 auto;
-      text-align: center;
-      width: 100%;
-      position: relative; }
-    .dish-modal_container_title h3 {
-      margin: 0 27.2px 14px 17px;
+    width: 50%; }
+    .dish-modal_container_content h4 {
+      display: block;
+      border-bottom: solid 2px #F0CE8C; }
+    .dish-modal_container_content_reset p {
       font-family: HelveticaNeue;
-      font-size: 35px;
-      font-weight: normal;
+      font-size: 14px;
+      font-weight: 100;
       font-stretch: normal;
       font-style: normal;
       line-height: normal;
-      letter-spacing: 2.33px;
+      letter-spacing: 0.93px;
       text-align: center; }
-    .dish-modal_container_content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 50%; }
-      .dish-modal_container_content_reset p {
-        margin: 14px 0 30px 17px;
-        font-family: HelveticaNeue;
-        font-size: 14px;
-        font-weight: 100;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: 0.93px;
-        text-align: center; }
-    .dish-modal_container_price {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: auto;
-      padding: 3rem 0;
-      gap: 1.5rem; }
-      .dish-modal_container_price span {
-        font-family: HelveticaNeue;
-        font-size: 24.9px;
-        font-weight: 100;
-        letter-spacing: 1.66px;
-        color: #000; }
-      .dish-modal_container_price_line {
-        width: 5rem;
-        border: 0.3px solid #979797; }
+  .dish-modal_container_price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 1rem 0;
+    gap: 1.5rem; }
+    .dish-modal_container_price span {
+      font-family: HelveticaNeue;
+      font-size: 24.1px;
+      letter-spacing: 1.03px;
+      color: #000; }
+    .dish-modal_container_price_line {
+      width: 5rem;
+      border: 0.3px solid #979797; }
 
 .hero-front {
   background-repeat: no-repeat;

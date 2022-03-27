@@ -140,7 +140,7 @@ border: solid 0.5px $grey;
 padding:0!important;
 }
 .dish-modal{
- height:70vh;
+
     &_container{
         display:flex;
         flex-direction:column;
@@ -179,11 +179,14 @@ padding:0!important;
         &_content{
         display:flex;
         flex-direction:column;
-        align-items:flex-start;
         width:50%;
+        h4{
+        display:block;
+            border-bottom: solid 2px #F0CE8C;
+        }
          &_reset{
                 p{
-                margin: 14px 0 30px 17px;
+//                 margin: 14px 0 30px 17px;
                   font-family: HelveticaNeue;
                   font-size: 14px;
                   font-weight: 100;
@@ -200,13 +203,13 @@ padding:0!important;
               align-items:center;
       justify-content:center;
               margin-top: auto;
-                padding:3rem 0;
+                padding:1rem 0;
                 gap:1.5rem;
         span{
         font-family: HelveticaNeue;
-          font-size: 24.9px;
-          font-weight: 100;
-         letter-spacing: 1.66px;
+         font-size: 24.1px;
+
+         letter-spacing: 1.03px;
           color:$black;
             }
              &_line{
