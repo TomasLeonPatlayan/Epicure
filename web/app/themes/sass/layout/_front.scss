@@ -54,7 +54,30 @@ main{
                  }
              }
               &_search {
+                #datafetch{
 
+                            background: $white;
+
+                             ul{
+                                              list-style:none;
+                                                margin-top:0;
+                                              li{
+                                                a{
+                                                text-decoration:none;
+                                                color:$black;
+                                                font-family: HelveticaNeue;
+                                                  font-size: 15px;
+                                                  font-weight: 100;
+                                                  font-stretch: normal;
+                                                  font-style: normal;
+                                                  line-height: normal;
+
+                                                }
+                                                }
+
+                                              }
+                        }
+                        }
                      form{
                        width: 30vw;
                          height: 48px;
@@ -125,7 +148,7 @@ main{
 
 
     }
-}
+
 //
 //  border-radius: 4px;
 //                         border:  solid 0.5px $grey;
@@ -141,6 +164,7 @@ main{
 
 .signature-dish{
 display:flex;
+gap:2rem;
 @include phone {
 flex-direction:column;
 }
@@ -149,14 +173,15 @@ flex-direction:column;
     align-items:center;
     flex-direction:column;
     flex:0 0 calc(33% - 1rem);
+
     &_container {
     display: flex;
-      align-items: center;
-      flex-direction: column;
-      background: #FAF4EA;
-      margin-top:auto;
-      height:100%;
-      max-width: 360px;
+    display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: #FAF4EA;
+        margin-top: auto;
+        height: 100%;
       @include phone {
       background:#f7e0b2;
       }
@@ -183,12 +208,7 @@ flex-direction:column;
                     border:.3px solid  $grey;
                     }
         }
-          &_image{
-          width: 360px;
-          img{
-          width:100%;
-          }
-          }
+
     }
 
     }
@@ -230,7 +250,7 @@ justify-content:center;
          width: 433px;
         height: 338px;
         @include phone {
-        width: 334px;
+        width:auto;
         }
         background-repeat:no-repeat;
         background-size: cover;
@@ -261,9 +281,16 @@ justify-content:center;
     }
 &_chef-restaurants{
     margin:3rem 0;
+    @include phone {
+    h3{
+            text-align:left;
+            }
+    }
         &_restaurants{
         display:flex;
         gap:2rem;
+
+
 
 
         &_entry{
@@ -480,4 +507,25 @@ flex-direction:column;
     }
 
     }
+}
+
+.chef-restaurant-container{
+width:70%!important;
+
+display:flex;
+gap:2rem;
+@include phone {
+width:auto!important;
+}
+    &_content{
+    flex: 0 0 calc(33% - 1rem);
+    background:#f9f4ea;
+    padding-bottom:2rem;
+
+
+    }
+}
+
+@include phone {
+
 }

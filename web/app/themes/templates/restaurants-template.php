@@ -16,7 +16,9 @@ while ($restaurants->have_posts()) :
         $termsSlug .= $term->slug . ' ';
     }
     ?>
-    <div class="restaurant_content <?php echo $termsSlug; ?> grid-item">
+
+    <div class="restaurant_content <?php echo $termsSlug; ?> grid-item
+">
         <a href="<?php the_permalink();?>">
             <div class="restaurant_content_image">
                 <?php echo  the_post_thumbnail(); ?>
@@ -31,7 +33,11 @@ while ($restaurants->have_posts()) :
 
 
     </div>
-
+<!--<pre>-->
+<!--    --><?php //$plates = get_field('rest_plates');
+//    var_dump($plates);
+//    ?>
+<!--</pre>-->
 
 <?php endwhile;
 wp_reset_postdata();?>

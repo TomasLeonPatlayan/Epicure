@@ -11,16 +11,43 @@ get_header();?>
       <?php the_content(); ?>
     <div class="rest_time">
         <img src=" <?php echo the_field('timer_image') ?>" alt="">
-        <span><?php   the_field('open_close');
-	       ?></span>
 
+        <?php $current_time = date('H:i:s');
+        $open = get_field('open', false, false);
+        $close = get_field('close', false, false);
+        $closed_soon = date('H:i:s', strtotime('-5 minutes', strtotime($close)));
+        $open_soon = date('H:i:s', strtotime('+5 minutes', strtotime($open)));
+        ?>
+  <?php if ($current_time >= $open && $current_time < $closed_soon) :?>
+      <span> Open</span>
+
+  <?php elseif ($current_time >= $closed_soon && $current_time < $close) :?>
+        <span>Close in 5 minutes</span>
+  <?php elseif ($current_time <= $open_soon && $current_time > $open) :?>
+      <span>Open in 5 minutes</span>
+  <?php else : ?>
+      <span> Close </span>
+
+  <?php endif;?>
     </div>
 
     <div class="rest_date-food">
-        <span>Breakfast</span>
-        <span>Lunch</span>
-        <span>Dinner</span>
+        <ul>
+
+                <?php $terms = get_terms('plates_category'); ?>
+                 <?php
+                    foreach ($terms as $term) {?>
+            <li class="Text-Style-2" data-filter=".<?php echo $term->slug;?>"><?php echo $term->name; ?></li>
+                    <?php }
+                    ?>
+
+        </ul>
     </div>
+
+
+
+
+
 
 
 </div>
@@ -83,7 +110,7 @@ get_header();?>
                 ?>
 
                 <div class="rest-dish_content dish ">
-                    <div class="rest-dish_content_container">
+                    <a href="#<?php echo $plate->ID ?>" rel="modal:open" class="rest-dish_content_container">
                         <div class="rest-dish_content_container_image">
                             <img src="<?php echo $image?>" alt="">
                         </div>
@@ -101,7 +128,7 @@ get_header();?>
                             <div class="rest-dish_content_container_price_line"></div>
 
                         </div>
-                    </div>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>

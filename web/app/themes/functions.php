@@ -12,13 +12,13 @@ add_action('after_setup_theme', 'epicure_setup');
 function epicure_styles()
 {
     //Adding Style
-    wp_register_style('style', get_template_directory_uri() . '/style/style.css', array(), '1.0');
+    wp_register_style('style', get_template_directory_uri() . '/style/style.css', array(), '1.1');
     wp_register_style('fluidboxcss', 'https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/css/fluidbox.min.css', array(), '5.9.2');
     //Enqueue the style
     wp_enqueue_style('style');
     wp_enqueue_style('fluidboxcss');
     wp_enqueue_style('jquerymodalcss', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css', array(), '');
-
+wp_enqueue_style('owlcarouselcss','https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css',array(),'2.3.5');
     //Adding Scripts
     wp_register_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0.0', true);
     wp_register_script('fluidboxjs', 'https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/js/jquery.fluidbox.min.js', array('jquery'), '5.9.2', true);
@@ -28,6 +28,7 @@ function epicure_styles()
     wp_enqueue_script('fluidboxjs');
     wp_enqueue_script('isotop', '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js', array('jquery'), false, true);
     wp_enqueue_script('jquerymodaljs', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js', array("jquery"), false, true);
+    wp_enqueue_script('owlcarousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array("jquery"), '2.3.4', true);
 }
 
 add_action('wp_enqueue_scripts', 'epicure_styles');
@@ -39,6 +40,9 @@ function epicure_menu()
     ));
     register_nav_menus(array(
         'filter-menu' => __("Filter Menu", 'epicure'),
+    ));
+    register_nav_menus(array(
+        'menu-mobile' => __("Menu Mobile", 'epicure'),
     ));
 }
 
@@ -94,7 +98,7 @@ function epicure_chefs()
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'chefs' ),
+     'rewrite'            => array( 'slug' => 'chefs' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -145,7 +149,14 @@ function epicure_plates()
         'supports'           => array( 'title', 'editor', 'thumbnail' ),
         'taxonomies'          => array( 'category' ),
     );
-
+    register_taxonomy('plates_category', array('plates'), array(
+        'hierarchical'=>true,
+        'labels' =>$labels,
+        'singular_label'=>'restaurant_category',
+        'all_items' =>'category',
+        'query_var'=>true,
+        'rewrite' =>array('slug' =>'plates')
+    ));
     register_post_type('plates', $args);
 }
 
@@ -179,7 +190,8 @@ function epicure_restaurants()
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'restaurants' ),
+        'rewrite' => array('slug' => 'events','with_front' => false),
+//        'rewrite'            => array( 'slug' => 'restaurants' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -216,65 +228,65 @@ function epicure_restaurants()
 add_action('init', 'epicure_restaurants');
 
 
-function epicure_search($query)
-{
-    if ($query->is_main_query() && $query->is_search()) {
-        $query->set('post_type', array('restaurants'));
-        $query->set('posts_per_page', -1);
-    }
-}
-add_action('pre_get_posts', 'epicure_search');
-add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script(
-        'autocomplete-search',
-        get_stylesheet_directory_uri() . '/js/search_ajax.js',
-        ['jquery', 'jquery-ui-autocomplete'],
-        null,
-        true
-    );
-
-    wp_localize_script('autocomplete-search', 'AutocompleteSearch', [
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'ajax_nonce' => wp_create_nonce('autocompleteSearchNonce')
-    ]);
-    $wp_scripts = wp_scripts();
-    wp_enqueue_style(
-        'jquery-ui-css',
-        '//ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-autocomplete']->ver . '/themes/smoothness/jquery-ui.css',
-        false,
-        null,
-        false
-    );
-});
-
-add_action('wp_ajax_nopriv_autocompleteSearch', 'awp_autocomplete_search');
-add_action('wp_ajax_autocompleteSearch', 'awp_autocomplete_search');
-function awp_autocomplete_search()
-{
-    check_ajax_referer('autocompleteSearchNonce', 'security');
-    $search_term = $_REQUEST['term'];
-    if (!isset($_REQUEST['term'])) {
-        echo json_encode([]);
-    }
-    $suggestions = [];
-    $query = new WP_Query([
-        's' => $search_term,
-        'posts_per_page' => -1,
-    ]);
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $suggestions[] = [
-                'id' => get_the_ID(),
-                'label' => get_the_title(),
-                'link' => get_the_permalink()
-            ];
-        }
-        wp_reset_postdata();
-    }
-    echo json_encode($suggestions);
-    die();
-}
+//function epicure_search($query)
+//{
+//    if ($query->is_main_query() && $query->is_search()) {
+//        $query->set('post_type', array('restaurants'));
+//        $query->set('posts_per_page', -1);
+//    }
+//}
+//add_action('pre_get_posts', 'epicure_search');
+//add_action('wp_enqueue_scripts', function () {
+//    wp_enqueue_script(
+//        'autocomplete-search',
+//        get_stylesheet_directory_uri() . '/js/search_ajax.js',
+//        ['jquery', 'jquery-ui-autocomplete'],
+//        null,
+//        true
+//    );
+//
+//    wp_localize_script('autocomplete-search', 'AutocompleteSearch', [
+//        'ajax_url' => admin_url('admin-ajax.php'),
+//        'ajax_nonce' => wp_create_nonce('autocompleteSearchNonce')
+//    ]);
+//    $wp_scripts = wp_scripts();
+//    wp_enqueue_style(
+//        'jquery-ui-css',
+//        '//ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-autocomplete']->ver . '/themes/smoothness/jquery-ui.css',
+//        false,
+//        null,
+//        false
+//    );
+//});
+//
+//add_action('wp_ajax_nopriv_autocompleteSearch', 'awp_autocomplete_search');
+//add_action('wp_ajax_autocompleteSearch', 'awp_autocomplete_search');
+//function awp_autocomplete_search()
+//{
+//    check_ajax_referer('autocompleteSearchNonce', 'security');
+//    $search_term = $_REQUEST['term'];
+//    if (!isset($_REQUEST['term'])) {
+//        echo json_encode([]);
+//    }
+//    $suggestions = [];
+//    $query = new WP_Query([
+//        's' => $search_term,
+//        'posts_per_page' => -1,
+//    ]);
+//    if ($query->have_posts()) {
+//        while ($query->have_posts()) {
+//            $query->the_post();
+//            $suggestions[] = [
+//                'id' => get_the_ID(),
+//                'label' => get_the_title(),
+//                'link' => get_the_permalink()
+//            ];
+//        }
+//        wp_reset_postdata();
+//    }
+//    echo json_encode($suggestions);
+//    die();
+//}
 
 //function filter_projects()
 //{
@@ -296,7 +308,7 @@ function awp_autocomplete_search()
 ////
 ////    if ($projects->have_posts()) {
 ////        while ($projects->have_posts()) :
-////	        $projects->the_post();
+////            $projects->the_post();
 ////            $response .=get_template_part('templates/restaurants', 'template');;
 ////        endwhile;
 ////    } else {
@@ -308,3 +320,65 @@ function awp_autocomplete_search()
 ////}
 //add_action('wp_ajax_filter_projects', 'filter_projects');
 //add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
+
+
+
+
+// add the ajax fetch js
+add_action('wp_footer', 'ajax_fetch');
+function ajax_fetch()
+{
+    ?>
+    <script type="text/javascript">
+        function fetch(){
+
+
+
+            jQuery.ajax({
+                url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                type: 'post',
+                data: { action: 'data_fetch', keyword: jQuery('#keyword').val() },
+                success: function(data) {
+                    if($('#keyword').val()){
+                    jQuery('#datafetch').html( data );
+
+                    }else{
+                        jQuery('#datafetch').html( '' );
+
+                    }
+                }
+            });
+
+
+        }
+    </script>
+
+    <?php
+}
+add_action('wp_ajax_data_fetch', 'data_fetch');
+add_action('wp_ajax_nopriv_data_fetch', 'data_fetch');
+function data_fetch()
+{
+
+    $the_query = new WP_Query(
+        array(
+            'posts_per_page' => -1,
+            's' => esc_attr($_POST['keyword']),
+            'post_type' => 'restaurants'
+        )
+    );
+
+    if ($the_query->have_posts()) :
+        while ($the_query->have_posts()) :
+            $the_query->the_post(); ?>
+<ul>
+    <li><a href="<?php echo esc_url(post_permalink()); ?>"><?php the_title();?></a></li>
+</ul>
+
+
+        <?php endwhile;
+        wp_reset_postdata();
+    endif;
+
+    die();
+}

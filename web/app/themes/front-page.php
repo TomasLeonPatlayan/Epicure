@@ -13,10 +13,11 @@ get_header(); ?>
             </div>
            <div class="hero-front_search-container_content_search">
                <form action="<?php echo esc_url(home_url()) ?>" method="get" class="search-form">
-                   <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
-                   <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s"  class="search-field">
-               </form>
-               <div id=”load-form”></div>
+                                      <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
+                                      <input onkeyup="fetch()"  type="text" id="keyword" placeholder="Search for restaurant cuisine, chef" name="s"  class="search-field" >
+                                  </form>
+<!--               <input type="text" name="keyword" id="keyword" onkeyup="fetch()">-->
+               <div id="datafetch"></div>
            </div>
        </div>
     </div>
@@ -37,7 +38,7 @@ get_header(); ?>
 <main class="container">
 
     <h2 class="Text-Style-9 mobile-title"><?php echo the_field("popular_res_title"); ?></h2>
-    <div class="restaurant-front">
+    <div class="restaurant-front owl-carousel ">
                 <?php  get_template_part('templates/popular', 'restaurants');?>
     </div>
     <?php $url = get_page_by_title('Restaurants');?>
@@ -49,7 +50,7 @@ get_header(); ?>
 
 <section class="container">
     <h2 class="Text-Style-9 mobile-title"><?php echo the_field("signature_dishes"); ?></h2>
-    <div class="signature-dish">
+    <div class="signature-dish owl-carousel">
     <?php  get_template_part('templates/signature', 'dish');?>
    </div>
 </section>
@@ -76,7 +77,7 @@ get_header(); ?>
 
 </section>
 
-<section class="chef container">
+<section class="chef container ">
         <?php get_template_part('templates/chef', 'week');  ?>
 </section>
 

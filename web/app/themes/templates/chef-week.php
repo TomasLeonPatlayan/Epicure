@@ -1,13 +1,6 @@
-<?php $args = array(
-    'posts_per_page' =>1,
-    'post_type' =>'chefs',
-
-);
-
-$chef = new WP_Query($args);
-
-while ($chef->have_posts()) :
-    $chef->the_post();?>
+<?php $chef_week = get_field('chef_of_the_week')?>
+<?php foreach ($chef_week as $post) : ?>
+    <?php  setup_postdata($post)?>
 <div class="chef_profile" >
     <h2 class="Text-Style-9 mobile-title"><?php echo the_field('main_title')?></h2>
     <div class="chef_profile_content">
@@ -17,29 +10,51 @@ while ($chef->have_posts()) :
     <div class="chef_profile_content_description Text-Style-18">
         <?php the_content(); ?>
     </div>
-        <div class="chef_profile_content_chef-restaurants">
-            <h3 class="Text-Style-22"><?php the_field('sub_title'); ?></h3>
-            <div class="chef_profile_content_chef-restaurants_restaurants">
-                <div class="chef_profile_content_chef-restaurants_restaurants_entry">
-                    <img src="<?php the_field('image'); ?>" alt="">
-                    <h3 class="Text-Style-16"><?php the_field('title'); ?></h3>
-                </div>
-                <div class="chef_profile_content_chef-restaurants_restaurants_entry">
-                    <img src="<?php the_field('image_1'); ?>" alt="">
-                    <h3 class="Text-Style-16">
-                        <?php the_field('title_1'); ?>
-                    </h3>
-                </div>
-                <div class="chef_profile_content_chef-restaurants_restaurants_entry ">
-                <img src="<?php the_field('image_2'); ?>" alt="">
-                    <h3 class="Text-Style-16">  <?php the_field('title_2'); ?></h3>
-                </div>
-            </div>
+        <?php $chef_restaurants = get_field('chef_restaurant', $post->ID) ?>
+     
+
+        <div class="chef_profile_content_chef-restaurants ">
+            <h3 class="Text-Style-22 chef_profile_content_chef-restaurants_title"><?php the_field('sub_title'); ?></h3>
+<!--            <div class="chef_profile_content_chef-restaurants_restaurants ">-->
+<!--                --><?php //foreach ($chef_restaurants as $post) : ?>
+<!--                    --><?php // setup_postdata($post)?>
+<!--                <div class="chef_profile_content_chef-restaurants_restaurants_entry ">-->
+<!---->
+<!--                 <img src="--><?php //$pep =the_field('image_1');
+//                    $search ='NULL';
+//                    $trimmed = str_replace($search, '', $pep) ; ?><!--" alt="">-->
+<!--                   <h3 class="Text-Style-16">-->
+<!--                     --><?php //the_title()?>
+<!--                    </h3>-->
+<!--                </div>-->
+<!--                    --><?php //wp_reset_postdata();
+//                endforeach; ?>
+<!--            </div>-->
+
        </div>
+
 
 
 
     </div>
 </div>
-<?php endwhile;
-wp_reset_postdata();?>
+<div class="chef-restaurant-container owl-carousel">
+
+                    <?php foreach ($chef_restaurants as $post) : ?>
+                        <?php  setup_postdata($post)?>
+                    <div class="chef-restaurant-container_content">
+
+                     <img src="<?php $pep =the_field('image_1');
+                        $search ='NULL';
+                        $trimmed = str_replace($search, '', $pep) ; ?>" alt="">
+                       <h3 class="Text-Style-16">
+                         <?php the_title()?>
+                        </h3>
+                    </div>
+                        <?php wp_reset_postdata();
+                    endforeach; ?>
+
+</div>
+    <?php wp_reset_postdata();
+endforeach; ?>
+

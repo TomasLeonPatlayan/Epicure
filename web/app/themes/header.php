@@ -14,30 +14,29 @@
 <header>
     <nav class="nav container">
         <div class="nav_container">
-<div class="nav_container_hamburguer-menu">
-    <img src="<?php echo get_template_directory_uri()?>/img/group-13.svg" alt="">
-
-.
-    <div class="nav_container_hamburguer-menu_menus">
-<!--        <a href="">Chef</a>-->
-        <?php $urlres = get_page_by_title('Restaurants');
-        $urlchef = get_page_by_title('Chefs'); ?>
-        <a class="" href="<?php echo get_permalink($urlres->ID);?>">All Restaurants </a>
-        <a class="" href="<?php echo get_permalink($urlchef->ID);?>">Chefs </a>
-
-        <a href="#">Sign in</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Terms of Use</a>
-    </div>
+ <div class="nav_container_hamburguer-logo">
+     <img src="<?php echo get_template_directory_uri()?>/img/group-13.svg" alt="">
+ </div>
+            <div class="nav_container_hamburguer-logo-close">
+                <img src="<?php echo get_template_directory_uri()?>/img/x.png" alt="">
+            </div>
+        <?php    $args = array(
+            'theme_location' =>'menu-mobile',
+            'container' => 'div',
+            'container_class' =>'nav_container_menus',
+        );
+                          wp_nav_menu($args); ?>
 
 
-</div>
+
+
+
             <div class="nav_container_pages">
 
                 <div class="nav_container_pages_logo">
 
-                    <img src="<?php echo get_template_directory_uri()?>/img/logo.jpg" alt="">
 
+                    <a href="<?php echo esc_url(home_url('/')); ?>"  >       <img src="<?php echo get_template_directory_uri()?>/img/logo.jpg" alt=""></a>
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="Text-Style-6">EPICURE</a>
                 </div>
                 <?php
@@ -53,8 +52,8 @@
             <div class="nav_container_information">
                 <div class="nav_container_information_search">
                     <form action="<?php echo esc_url(home_url()) ?>" method="get" class="search-form">
-                        <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s"  class="search-field">
-                        <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
+                                <input type="text" id="search" placeholder="Search for restaurant cuisine, chef" name="s"  class="search-field">
+                                <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
                     </form>
                     <button type="submit"><img src="<?php echo get_template_directory_uri() ?>/img/search-icon.svg" alt=""></button>
                 </div>

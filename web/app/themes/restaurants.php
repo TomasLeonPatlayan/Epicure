@@ -18,7 +18,6 @@ foreach ($terms as $term) {?>
 ?>
 
 </ul>
-
     </div>
 
 <?php get_template_part('templates/restaurants', 'template');?>

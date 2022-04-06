@@ -5,29 +5,55 @@ border-bottom:0.2px solid $grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &_hamburguer-menu{
+    position:relative;
+    &_menus{
+    display:none;
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:-3%;
+    background:$white;
+    z-index:10000;
+
+
+    ul{
+  list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10rem;
+      top: 12%;
+      position: absolute;
+      top: 1;
+      left: 1;
+      left: 25%;
+   }
+    }
+    &_hamburguer-logo-close{
+    display:none;
+    position:absolute;
+    z-index:10001;
+    }
+    &_hamburguer-logo{
     display:none;
     @include phone{
     display:block;
       flex: 0 0 calc(33.3% - 1rem);
-      &_menus{
-
-              display:none;
-
-              }
     }
+
 
     }
     &_pages{
         display: flex;
- @include phone{
-      flex: 0 0 calc(33.3% - 1rem);
-    }
+//  @include phone{
+//       flex: 0 0 calc(33.3% - 1rem);
+//     }
         &_logo {
            display: flex;
            align-items: center;
            gap: 1rem;
-            a{
+            a:last-child{
                 display: block;
                 @include phone {
                 display:none;
@@ -66,6 +92,7 @@ border-bottom:0.2px solid $grey;
         }
 
         &_search {
+
         button {
         display:none
         }

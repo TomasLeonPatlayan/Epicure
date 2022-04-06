@@ -4,11 +4,12 @@
     <?php setup_postdata($post) ?>
     <?php $restaurant = get_field("restaurant_relationed");?>
     <?php foreach ($restaurant as $rest) :?>
+
         <div class="signature-dish_content">
             <h2 class="Text-Style-17"> <?php echo $rest->post_title  ?></h2>
             <div class="signature-dish_content_container">
                 <div class="signature-dish_content_container_image">
-                    <img src="  <?php echo the_field("image_1") ?>" alt="">
+                    <img src="  <?php  the_field("image_1") ?>" alt="">
                 </div>
                 <div class="signature-dish_content_container_title">
                     <h3 class="Text-Style-21"> <?php the_title() ?></h3>
