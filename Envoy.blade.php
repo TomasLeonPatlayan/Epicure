@@ -108,13 +108,21 @@ ls -t | tail -n +4 | xargs rm -rf
 {{ logMessage("Cleaned up old deployments.") }}
 @endtask
 
-@task('upload', ['on' => 'local'])
+@task('upload', ['on' => 'production'])
 
-cd {{ $theme_dir }}
+cd {{$currentDir}}/{{$theme_dir}}
+sudo rm -r plugins
+sudo  unzip plugins.zip   
+
+  
+@endtask
+
+@task('zip_uploads_plugins', ['on' => 'local'])
+cd {{$theme_dir}}
  
 zip -r plugins.zip plugins 
- 
 
+zip -r uploads.zip uploads 
 @endtask
  
 @story('deploy-local', ['on' => 'production'])
@@ -124,11 +132,9 @@ dir
 @story('deploy')
 dir
 git
-upload
 install
 live
 deployment_cleanup
-
 @endstory
 
 
