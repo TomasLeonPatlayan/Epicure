@@ -43,7 +43,10 @@ $deploymentDir = $releaseDir . '/' . $release;
 // and this is the document root directory
 $currentDir = $appDir . '/current';
 
-$theme_dir = 'web/app/';
+
+
+
+$theme_dir = 'web/app/themes';
 
 function logMessage($message) {
 return "echo '\033[32m" .$message. "\033[0m';\n";
@@ -77,6 +80,18 @@ git clone --depth 1 -b {{ $branch }} "{{ $repo }}" {{ $deploymentDir }}
 
 @endtask
 
+@task('upload_compiled_assets', ['on' => 'local'])
+cd {{ $theme_dir }}
+{{--npm run production--}}
+tar -czf assets-{{ $release }}.tar.gz dist
+scp assets-{{  $release }}.tar.gz {{ $servers['production'] }}:~
+#rm -rf assets-{{  $release }}.tar.gz
+
+#wp plugin list --format=json > ./plugins-export.json
+#scp ./plugins-export.json {{ $servers['production'] }}:~
+#rm ./plugins-export.json
+@endtask
+
 @task('install',['on' => 'production'])
 {{ logMessage("Installing dependencies...") }}
 
@@ -102,9 +117,8 @@ sudo ln -nfs {{ $deploymentDir }} {{ $currentDir }}
 {{ logMessage("Cleaning up old deployments...") }}
 
 cd {{ $releaseDir }}
-ls -t | tail -n +4 | xargs rm -rf
-
-
+sudo ls -t | tail -n +4 | xargs rm -rf
+ 
 {{ logMessage("Cleaned up old deployments.") }}
 @endtask
 
@@ -112,8 +126,11 @@ ls -t | tail -n +4 | xargs rm -rf
 
 cd {{$currentDir}}/{{$theme_dir}}
 sudo rm -r plugins
+sudo rm -r uploads
 sudo  unzip plugins.zip   
 
+
+sudo  unzip uploads.zip   
   
 @endtask
 
@@ -130,11 +147,10 @@ dir
 @endstory
 
 @story('deploy')
+
 dir
 git
-install
-live
-deployment_cleanup
+ 
 @endstory
 
 
